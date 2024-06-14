@@ -1,0 +1,1021 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Roll Caller Response</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../../../../Mobile/css/bootstrap.min.css?v=755791792" rel="stylesheet" />
+    <link href="../../../../Mobile/css/jquery.mobile.datepicker.css?v=755791792" rel="stylesheet" />
+    <link href="../../../../Mobile/css/jquery.mobile.datepicker.theme.css?v=755791792" rel="stylesheet" />
+    <script src="../../../../Mobile/js/jquery.min.js?v=755791792"></script>
+    <script src="../../../../Mobile/js/datepicker.js?v=755791792"></script>
+    <script src="../../../../Mobile/js/justify_login.js?v=755791792"></script>
+    <script src="../../../../Mobile/js/bootstrap.bundle.min.js?v=755791792"></script>
+    <script src="../../../../Mobile/js/mobile_util.js?v=755791792"></script>
+    <script src="../../../../Mobile/js/bootbox.min.js?v=755791792"></script>
+    <script src="../../../../CommonJS/website.js?v=755791792"></script>
+    <script src="../../../../CommonJS/utility.js?v=755791792"></script>
+    <script src="../../../../CommonJS/jquery.query.js?v=755791792"></script>
+    <script src="../../Scripts/Utility.Form.js?v=755791792"></script>
+    <script src="../../../../CommonJS/jquery.jbind-1.5.8.js?v=755791792"></script>
+    <link href="../../../../Styles/Default/main.css?v=755791792" rel="stylesheet" />
+    <script src="../../../../CommonJS/workflowww.js?v=755791792" type="text/javascript"></script>
+    <script src="../../../../CommonJS/jqModal.js?v=755791792" type="text/javascript"></script>
+    <script src="../../../../CommonJS/jqDnR.js?v=755791792" type="text/javascript"></script>
+    <link href="../../../../Styles/Default/jquery.selectBox.css?v=755791792" rel="stylesheet" type="text/css" />
+    <script src="../../../../CommonJS/jquery.selectBox.js?v=755791792" type="text/javascript"></script>
+    <script src="../../../../CommonJS/PopHelper.js?v=755791792" type="text/javascript"></script>
+    <script src="../../../../Scripts/userdef.js?v=755791792" type="text/javascript"></script>
+    <script src="../../../../CommonJS/jquery.query.js?v=755791792" type="text/javascript"></script>
+    <script src="../../../../CommonJS/jquery_timers-1.2.js?v=755791792" type="text/javascript"></script>
+    <script src="../../Scripts/monitor.js?v=755791792" type="text/javascript"></script>
+    <script src="../../../../CommonJS/jquery.swipebox.js?v=755791792" type="text/javascript"></script>
+    <script src="../../../../CommonJS/jquery_cookie.js?v=755791792" type="text/javascript"></script>
+    <script src="../../../../CommonJS/jquery.liMarquee.js?v=755791792" type="text/javascript"></script>
+    <link href="../../../../Styles/Default/liMarquee.css?v=755791792" rel="stylesheet" type="text/css" />
+    <link href="../../../../Styles/Default/stylesheet.css?v=755791792" rel="stylesheet" type="text/css" />
+    <link href="../../../../Styles/Default/main.css?v=755791792" rel="stylesheet" type="text/css" />
+    <link href="../../../../Styles/Default/jqModal.css?v=755791792" rel="stylesheet" type="text/css" />
+    <link href="../../../../Styles/Default/jquery-ui-1.8.18.custom.css?v=755791792" rel="stylesheet" type="text/css" />
+    <link href="../../../../Styles/Default/swipebox.css?v=755791792" rel="stylesheet" type="text/css" />
+    <script src="../../Scripts/jquery.dataTables.js?v=755791792" type="text/javascript"></script>
+    <script src="../../Scripts/ZeroClipboard.js?v=755791792" type="text/javascript"></script>
+    <script src="../../Scripts/TableTools.js?v=755791792" type="text/javascript"></script>
+    <script src="../../Scripts/html5-qrcode.min.js"></script>
+
+    <style>
+        body {
+            font-family: "Myriad Pro", Arial, sans-serif;
+        }
+
+        .form-group.required label:before {
+            color: red;
+            content: "*";
+            /* position: absolute;
+            margin-left: -15px;*/
+        }
+
+        .form-horizontal {
+            margin: 0px 5px 0px 5px;
+        }
+
+        .requiredfield {
+            color: red;
+            font-weight: bold;
+            font-size: 14px;
+            /* padding-right: 2px; */
+        }
+
+        .conlistright1 {
+            margin-bottom: 10px;
+        }
+
+        .modal-content, #caption {
+            -webkit-animation-name: zoom;
+            -webkit-animation-duration: 0.6s;
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .card-content {
+                display: block;
+                text-align: center;
+            }
+
+            .card-content-image {
+                text-align: center;
+            }
+
+            .card-content-detail {
+                text-align: left;
+                width: 200px;
+                margin: auto;
+                padding: 10px 0px 0px 0px !important;
+            }
+
+            .modal-content {
+                width: 100%;
+            }
+
+            .container {
+                max-width: 375px;
+            }
+        }
+
+        @-webkit-keyframes zoom {
+            from {
+                -webkit-transform: scale(0)
+            }
+
+            to {
+                -webkit-transform: scale(1)
+            }
+        }
+
+        @keyframes zoom {
+            from {
+                transform: scale(0)
+            }
+
+            to {
+                transform: scale(1)
+            }
+        }
+
+        @media only screen and (max-width: 700px) {
+            .modal-content {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="div_rollcaller_response" class="container" style="margin:10px 5px 5px 5px; max-width:500px;">
+        <form class="form-horizontal" role="form" id="form">
+            <div class="row">
+                <h2>&nbsp;<u>Roll Caller Response</u></h2>
+            </div>
+            <br />
+            <div id="divMarket">
+                <div class="row">
+                    <label for="ddlMarket" class="col-sm-4 formlabel">Country:</label>
+                    <div class="col-sm-8">
+                        <span id="ddlMarket" class="form-control" readonly></span>
+                    </div>
+                </div>
+            </div>
+            <div>&nbsp;</div>
+            <div id="divLocation">
+                <div class="row">
+                    <label for="ddlLocation" class="col-sm-4 formlabel">Office Location:</label>
+                    <div class="col-sm-8">
+                        <span id="ddlLocation" class="form-control" readonly></span>
+                    </div>
+                </div>
+            </div>
+            <div>&nbsp;</div>
+            <div id="divBU">
+                <div class="row">
+                    <label for="ddlBusinessUnit" class="col-sm-4 formlabel">Business Unit:<span class="requiredfield">*</span></label>
+                    <div class="col-sm-8">
+                        <select id="ddlBusinessUnit" class="form-control"></select>
+                    </div>
+                </div>
+            </div>
+            <div>&nbsp;</div>
+            <div id="divRollCallerDate">
+                <div class="row">
+                    <label for="rollcallerdate" class="col-sm-4 formlabel">Roll Call Date:</label>
+                    <div class="col-sm-8">
+                        <input id="rollcallerdate" class="form-control" type="text" readonly />
+                    </div>
+                </div>
+            </div>
+            <div>&nbsp;</div>
+            <hr />
+            <div id="divResponseRate">
+                <div class="row">
+                    <label for="txtResponseRate" class="col-sm-4 formlabel">Response Rate:</label>
+                    <div class="col-sm-8">
+                        <input type="text" readonly="readonly" id="txtResponseRate" />
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+        <div id="responseTableDiv" style="overflow:hidden">
+            <table cellpadding="0" cellspacing="0" border="1" class="display" style="width:98%;" id="triggerResponseList">
+                <thead>
+                    <tr>
+                        <th class="username">
+                            Name
+                        </th>
+                        <th class="usercontact">
+                            Contact#
+                        </th>
+                        <th class="responsestatusid">
+                            Status
+                        </th>
+                        <th class="rollcalldate"></th>
+                        <th class="userid"></th>
+                        <th class="useremail"></th>
+                        <th class="recid"></th>
+                        <th class="triggerid"></th>
+                    </tr>
+                </thead>
+            </table>
+            <div id="divManualEntry" class="control-label" style="padding-top:5px;display:none">
+                <a id="aManualEntry" onclick="ManualEntryClick()">
+                    <span class="uploadicon"></span><span class="uploadtext">Manual Entry</span>
+                </a>
+                <div id="divManualEntryForm" class="control-label" style="display:none">
+                    <div class="row">&nbsp;</div>
+                    <div class="form-group manual">
+                        <div class="row">
+                            <label for="person" class="col-sm-3 formlabel">Person:</label>
+                            <div class="col-sm-9">
+                                <input id="person" type="text" class="form-control" placeholder="Person" aria-label="Person">
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="form-group manual">
+                        <div class="row">
+                            <label for="email" class="col-sm-3 formlabel">Email:</label>
+                            <div class="col-sm-9">
+                                <input id="email" type="text" class="form-control" placeholder="Email" aria-label="Email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group manual">
+                        <div class="row">
+                            <label for="contact" class="col-sm-3 formlabel">Contact:</label>
+                            <div class="col-sm-9">
+                                <input id="contact" type="text" class="form-control" placeholder="Contact" aria-label="Contact">
+                            </div>
+                        </div>
+                    </div>-->
+                    <div class="form-group manual">
+                        <div class="row">
+                            <label for="status" class="col-sm-3 formlabel">Status:</label>
+                            <div class="col-sm-9">
+                                <select id="status" class="form-control"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="btngroup">
+                            <button class="btn btn-primary" type="button" id="btnsave" actname="btnaddnew">Save</button>
+                            <button class="btn btn-primary" type="button" id="btncancel" actname="btncancel">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="row">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">&nbsp;</div>
+        <div class="row">&nbsp;</div>
+
+        <!--<div style="overflow:hidden">
+            <table cellpadding="0" cellspacing="0" border="1" class="display" id="summarytable">
+                <thead>
+                    <tr style="text-align:left; vertical-align:top;">
+                        <th class="safelyarrived summaryheader">
+                            Safely Arrived at Assembly Point
+                        </th>
+                        <th class="outofoffice summaryheader">
+                            Out of Office / On Leave
+                        </th>
+                        <th class="assistancerequired summaryheader">
+                            Further Assistance Required
+                        </th>
+                        <th class="unidentified summaryheader">
+                            Unidentified
+                        </th>
+                    </tr>
+                    <tr>
+                        <td id="safelyarrivedcount">
+                            0
+                        </td>
+                        <td id="outofofficecount">
+                            0
+                        </td>
+                        <td id="assistancerequiredcount">
+                            0
+                        </td>
+                        <td id="unidentifiedcount">
+                            0
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+        </div>-->
+        <div style="overflow:hidden">
+            <table cellpadding="0" cellspacing="0" border="1" class="display" id="summarytable">
+                <thead>
+                    <tr>
+                        <td class="safelyarrived summaryheader col-sm-11" style="text-align:left; vertical-align:top;">
+                            Safely Arrived at Assembly Point
+                        </td>
+                        <td id="safelyarrivedcount" class="summarycount col-sm-8">
+                            0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="outofoffice summaryheader  col-sm-11" style="text-align: left; vertical-align: top;">
+                            Out of Office / On Leave
+                        </td>
+                        <td id="outofofficecount" class="summarycount col-sm-8">
+                            0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="assistancerequired summaryheader  col-sm-11" style="text-align: left; vertical-align: top;">
+                            Further Assistance Required
+                        </td>
+                        <td id="assistancerequiredcount" class="summarycount col-sm-8">
+                            0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="unidentified summaryheader  col-sm-11" style="text-align: left; vertical-align: top;">
+                            Unidentified
+                        </td>
+                        <td id="unidentifiedcount" class="summarycount col-sm-8">
+                            0
+                        </td>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="row">&nbsp;</div>
+        <div class="row" style="float:right; margin-right:10px;">
+            <button type="button" class="btn btn-primary" id="closerollcallbtn">Close Roll Call</button>
+        </div>
+        <div class="row" id="divCamera" style="display:none">
+            <div style="margin-left:10px; text-align:center;width:98%;">
+                <figure style="padding-left:10px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <button type="button" class="btn" style="width: 80%" id="btnOpenCam" onclick="openScanner()"><img alt="openCamera" dbsrc="/images/rollcaller_camera.png" src="../../../../Images/rollcaller_camera.png"></button>
+                    <figcaption>Click to Scan eBizCard for attendance</figcaption>
+                </figure>
+            </div>
+        </div>
+
+        <div class="clear">
+        </div>
+        <a id="temp_a_manualEntry" style="display: none;"></a>
+    </div>
+    <div class="row">&nbsp;</div>
+
+    <div class="modal" id="cameraModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">eBizCard Scanner</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div id="reader" style="width: 80%; height: 60%;"></div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .statusSel {
+            height: 85%;
+            width: 100%;
+        }
+
+        .conlistright {
+            align-content: center;
+        }
+
+        .fieldconlist {
+            border: none;
+            margin-left: 5%;
+            height: 95%;
+        }
+
+        .grid-cell-nowrap {
+            min-height: 24px;
+        }
+
+        .summarycount {
+        }
+
+        .summaryheader {
+            font-weight: normal;
+        }
+
+        #divManualEntry:hover {
+            cursor: pointer;
+        }
+
+        #txtResponseRate {
+            border: none;
+            width: 100%;
+        }
+
+        .form-group {
+            margin-left: 5px;
+            margin-bottom: 5px;
+        }
+
+        .manual {
+            margin-bottom: 10px;
+        }
+
+
+        .btn {
+            margin: 3px;
+            background-color: #337ab7;
+            border-color: #2e6da4;
+        }
+
+        .btngroup {
+            text-align: right;
+            right: 1%;
+            bottom: 1%;
+        }
+    </style>
+
+    <script type="text/javascript">
+        var url_api = webRoot + "Modules/HSSERollCaller/RollCallerHandler.ashx";
+        var statusOptions = {};
+        var locationMap = {};
+        var total = 0;
+        var current = 0;
+        var oTable_triggerResponseList = $('#triggerResponseList');
+        var summaryStatusMap = {
+            "Safely arrived at assembly point": "safelyarrivedcount",
+            "Further assistance required": "assistancerequiredcount",
+            "Unidentified": "unidentifiedcount",
+            "Out of office / On Leave": "outofofficecount"
+        };
+        var triggerid = "";
+        var triggerExists = false;
+
+        getLoginDetail();
+
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+        function UpdateResponseRate() {
+            total = 0;
+            current = 0;
+            $("#txtResponseRate").attr("style", "color:black");
+            $("#triggerResponseList tbody tr").each(function (i, v) {
+
+                if ($("#triggerResponseList tbody tr").attr("class") != undefined &&
+                    $("#triggerResponseList tbody tr").attr("class") != 'dataTables_empty') {
+                    total++;
+                }
+
+                var statusid = $("td:eq(2) select", v).data("status");
+                if (!statusid) {
+                    return;
+                }
+                current++;
+            })
+
+            $("#txtResponseRate").val(current + " / " + total);
+        }
+
+        function LoadStatus() {
+            $.ajax({
+                type: "POST",
+                async: false,
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    ajaxerroralert(XMLHttpRequest, textStatus, errorThrown);
+                },
+                url: url_api,
+                data: { req: "LoadResponseTriggerStatus" },
+                dataType: "text json",
+                success: function (arr) {
+                    $.each(arr.aadata, function (i, v) {
+                        statusOptions[v.recid] = v.responsestatus;
+
+                        //** Populate Manual Entry ddl*/
+                        var option = "<option value='" + v.recid + "'>" + v.responsestatus + "</option>"
+                        $("#status").append(option);
+                    })
+                }
+            });
+        }
+
+        function ManualEntryClick() {
+            if (ValidateFormData()) {
+
+                $("#divManualEntryForm").show();
+
+                /*
+                $("#temp_a_manualEntry").unbind("click");
+                $("#temp_a_manualEntry").PopHelp({
+                    type: "ResponseManualEntry", title: "Roll Caller Response Manual Entry", template: "modules/HSSERollCaller/RollCallerResponseManualEntry.html", width: "550px", height: "880px",
+                    param: {
+                        refresh: refreshlist,
+                        market: $("#ddlMarket").val(),
+                        location: $("#ddlLocation").val(),
+                        businessunit: $("#ddlBusinessUnit").val(),
+                        rollcalldate: $("#rollcallerdate").val(),
+                        marketname: $("#ddlMarket :selected").text(),
+                        locationname: $("#ddlLocation :selected").text(),
+                        businessunitname: $("#ddlBusinessUnit :selected").text(),
+                        triggerid: triggerid
+                    }
+                });
+
+                $("#temp_a_manualEntry").click();
+                */
+            }
+        }
+
+        function refreshlist() {
+            //refreshDataTable(oTable_triggerResponseList);
+            LoadTriggerResponses();
+        }
+
+        function InitializeSummary() {
+            // Add id to the summary table cells
+            $.each(statusOptions, function (k, v) {
+                var countId = summaryStatusMap[v];
+                $("#" + countId).attr("data-statusid", k);
+            })
+
+        }
+
+        function ResetSummaryCount() {
+            $("#summarytable tr td:nth-child(2)").each(function (i, v) {
+                $(v).text(0);
+            })
+        }
+
+        function LoadSummary() {
+            ResetSummaryCount();
+            $("#triggerResponseList tbody tr").each(function (i, v) {
+                var statusid = $("td:eq(2) select", v).data("status");
+                if (!statusid) {
+                    return;
+                }
+
+                var matchingTd = $("#summarytable").find(`td[data-statusid=${statusid}]`);
+                var value = parseInt(matchingTd.text());
+                var newValue = value + 1;
+                matchingTd.text(newValue);
+            })
+
+            UpdateResponseRate();
+        }
+
+        function CheckIfTriggerExists() {
+            var countryid = $("#ddlMarket").attr("value");
+            var locationid = $("#ddlLocation").attr("value");
+            var businessunitid = $("#ddlBusinessUnit").val();
+            var rollcalldate = $("#rollcallerdate").val();
+
+            $.ajax({
+                type: "POST",
+                async: false,
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    ajaxerroralert(XMLHttpRequest, textStatus, errorThrown);
+                },
+                url: url_api,
+                data: { req: "CheckIfTriggerExists", countryid: countryid, locationid: locationid, businessunitid: businessunitid, rollcalldate: rollcalldate },
+                dataType: "text json",
+                success: function (rtn) {
+                    if (rtn.result == "true") {
+                        triggerExists = true;
+                        $("#divManualEntry").show();
+                        triggerid = rtn.data;
+                        LoadSummary();
+                    } else {
+                        triggerExists = false;
+                        $("#txtResponseRate").val("No ongoing roll call here.");
+                        $("#txtResponseRate").attr("style", "color:red");
+                        $("#divManualEntry").hide();
+                    }
+                }
+            });
+        }
+
+        function LoadTriggerResponses() {
+            var Columns = [
+                { "mData": "username" },
+                { "mData": "usercontact" },
+                { "mData": "responsestatusid" },
+                { "mData": "rollcalldate" },
+                { "mData": "userid" },
+                { "mData": "useremail" },
+                { "mData": "recid" },
+                { "mData": "triggerid" }
+            ];
+            var ColumnDefs = [
+                { "aTargets": ["username"], "bVisible": true, "sClass": "left", "bSearchable": true, "bSortable": true, "fnRender": function (oObj) { return oObj.aData.username; } },
+                { "aTargets": ["usercontact"], "bVisible": true, "sClass": "center", "bSearchable": true, "bSortable": true, "fnRender": function (oObj) { return oObj.aData.usercontact; } },
+                {
+                    "aTargets": ["responsestatusid"], "bNowrap": true, "bVisible": true, "sClass": "left", "bSearchable": true, "bSortable": true, "fnRender": function (oObj) {
+                        var assetname = "<select onChange='StatusSelChange(this)' class='statusSel' data-status='" + oObj.aData.responsestatusid + "' id='ddl" + oObj.aData.recid + "' class='form-control sys-com-select'></select>";
+                        return assetname;
+                    }
+                },
+                {
+                    "aTargets": ["rollcalldate", "userid", "useremail", "recid", "triggerid"], "bVisible": false, "sClass": "center", "bSearchable": false, "bSortable": false
+                }
+
+            ];
+
+            oTable_triggerResponseList.dataTable().fnDestroy();
+
+            oTable_triggerResponseList.dataTable({
+                sDom: '<pf<"clear">>rt<"clear">li<"clear">',
+                bAutoWidth: false,
+                bProcessing: true,
+                bServerSide: true,
+                bJQueryUI: true,
+                bDestroy: true,
+                iDisplayLength: 100,
+                aLengthMenu: [8, 20, 30, 100],
+                aaSorting: [[3, "desc"]],
+                aoColumnDefs: ColumnDefs,
+                sPaginationType: "two_button",
+                sAjaxSource: url_api + "?req=GetRollCallerTriggerResponses",
+                aoColumns: Columns,
+                fnServerParams: function (aoData) {
+                    aoData.push({ "name": "countryid", "value": $("#ddlMarket").attr("value") });
+                    aoData.push({ "name": "locationid", "value": $("#ddlLocation").attr("value") });
+                    aoData.push({ "name": "businessunitid", "value": $("#ddlBusinessUnit").val() });
+                    aoData.push({ "name": "rollcalldate", "value": $("#rollcallerdate").val() });
+                },
+
+                fnCreatedRow: function (r, d) {
+                    var id = "#ddl" + d.recid;
+                    var selector = $(r).find(id);
+
+                    //// Populate all the status options
+                    $.each(statusOptions, function (k, v) {
+                        var option = "<option value='" + k + "'>" + v + "</option>"
+                        selector.append(option);
+                    })
+
+                    //Select the chosen option
+                    var value = selector.data("status");
+                    var nullOpt = "<option id='notselectedopt' style='color:red' value=''>Not Selected</option>"
+                    selector.append(nullOpt);
+                    if (value) {
+                        selector.find("option[value=" + value + "]").prop("selected", true);
+                    } else {
+                        selector.find("option[id='notselectedopt']").prop("selected", true);
+                        selector.css("color", "red");
+                        selector.find("option[id!='notselectedopt']").each(function (i, v) {
+                            $(v).css("color", "black");
+                        })
+                    }
+
+                },
+
+                fnInitComplete: function (settings, json) {
+                    CheckIfTriggerExists();
+
+                    var recCount = 0;
+                    if (settings != undefined && settings.aoData != undefined && settings.aoData != null) recCount = settings.aoData.length;
+                    if (recCount > 0 && triggerid != undefined && triggerid != null && triggerid != '') {
+                        if (isMobile) {
+                            $("#divCamera").show();
+                        }
+                    }
+                    else {
+                        $("#divCamera").hide();
+                    }
+                },
+            });
+
+            $("input", $(".dataTables_filter")).delaySearch(oTable_triggerResponseList);
+        }
+
+        function SaveToDatabase(recid, statusid) {
+            $.ajax({
+                type: "POST",
+                async: false,
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    ajaxerroralert(XMLHttpRequest, textStatus, errorThrown);
+                },
+                url: url_api,
+                data: { req: "SaveResponseStatus", recid: recid, statusid: statusid },
+                dataType: "text json",
+                success: function (rtn) {
+                    if (rtn.result == "false") {
+                        alert("Error: no record changed.")
+                        return;
+                    } else {
+                        refreshlist();
+                    }
+                }
+            });
+        }
+
+        function StatusSelChange(sel) {
+            var recid = $(sel).attr("id").slice(3);
+            var statusid = $(sel).find(":selected").val();
+
+            SaveToDatabase(recid, statusid);
+        }
+
+        function ValidateFormData() {
+            var $ddlMarket = $("#ddlMarket");
+            var $ddlLocation = $("#ddlLocation");
+            var $ddlBusinessUnit = $("#ddlBusinessUnit");
+            var $rollcallerdate = $("#rollcallerdate");
+
+            var marketid = $ddlMarket.attr("value");
+            var locationid = $ddlLocation.attr("value");
+            var businessunitid = $ddlBusinessUnit.val();
+            var rollcallerdate = $rollcallerdate.val();
+
+            $("#closerollcallbtn").show();
+
+            //*** Market */
+            if ($ddlMarket != undefined && (marketid == undefined || marketid == '' || marketid == '0')) {
+                DialogAlert('User is not a Roll Caller at any location.');
+                $("#divCamera").hide();
+                $("#closerollcallbtn").hide();
+                return false;
+            }
+
+            //*** Location */
+            if ($ddlLocation != undefined && (locationid == undefined || locationid == '' || locationid == '0')) {
+                DialogAlert('Please select Office Location.');
+                return false;
+            }
+
+
+            //*** BU */
+            if ($ddlBusinessUnit != undefined && (businessunitid == undefined || businessunitid == '' || businessunitid == '0')) {
+                DialogAlert('Please select Business Unit.');
+                return false;
+            }
+
+            //**** Roll Caller Date*/
+            if ($rollcallerdate != undefined && (rollcallerdate == undefined || rollcallerdate == '')) {
+                DialogAlert('Please select Roll Call Date.');
+                return false;
+            }
+
+            return true;
+        }
+
+
+        $("#btnsave").on("click", function () {
+            var person = $("#person").val();
+            var status = $("#status").val();
+            var date = $("#rollcallerdate").val()
+
+            if (!person || person == '') {
+                alert("Enter a person's name");
+                return;
+            }
+
+            $.ajax({
+                type: "POST",
+                async: false,
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    ajaxerroralert(XMLHttpRequest, textStatus, errorThrown);
+                },
+                url: url_api,
+                data: { req: "AddManualResponse", triggerid: triggerid, person: person, status: status, date: date },
+                dataType: "text json",
+                success: function (rtn) {
+                    refreshlist();
+                    $("#divManualEntryForm").hide();
+                    ClearManualEntryForm();
+                }
+            });
+        })
+
+        $("#btncancel").on("click", function () {
+            /*$.PopHelp.hidePopHelp();*/
+            $("#divManualEntryForm").hide();
+            ClearManualEntryForm();
+        })
+
+        function ClearManualEntryForm() {
+            $("#person").val('');
+            $("#status option:first").prop("selected", true);
+        }
+
+        function LoadLocationDetails() {
+            var details = locationMap[$("#ddlBusinessUnit").val()]
+
+            if (details == undefined) {
+                return;
+            }
+
+            $("#ddlMarket").text(details.countryname);
+            $("#ddlMarket").attr("value", details.countryid);
+
+            $("#ddlLocation").text(details.locationname);
+            $("#ddlLocation").attr("value", details.locationid);
+        }
+
+        $("#ddlBusinessUnit").on("change", function () {
+            LoadLocationDetails();
+            if (ValidateFormData()) {
+                LoadTriggerResponses();
+            }
+        })
+
+        $("#closerollcallbtn").on("click", function () {
+            if (!triggerExists) {
+                DialogAlert("There is no ongoing roll call at this location.");
+                return;
+            }
+
+            if (current < total) {
+                DialogAlert("There is still " + (total - current) + " person(s) with no response.");
+                return;
+            }
+
+            if (!confirm('This will close the current ongoing roll call. Proceed?')) {
+                return;
+            }
+
+            $.ajax({
+                type: "POST",
+                async: false,
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    ajaxerroralert(XMLHttpRequest, textStatus, errorThrown);
+                },
+                url: url_api,
+                data: { req: "CloseRollCall", triggerid: triggerid },
+                dataType: "text json",
+                success: function (rtn) {
+                    if (rtn.result == "true") {
+                        alert("This roll call has been closed.");
+                    } else {
+                        alert("Error closing this roll call.");
+                    }
+                    refreshlist();
+                    ResetSummaryCount();
+                }
+            });
+        })
+
+        function LoadRollCallerLocations() {
+            $.ajax({
+                type: "POST",
+                async: false,
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    ajaxerroralert(XMLHttpRequest, textStatus, errorThrown);
+                },
+                url: url_api,
+                data: { req: "LoadRollCallerLocationsByRollCallerAdmin" },
+                dataType: "text json",
+                success: function (rtn) {
+                    $("#ddlBusinessUnit").empty();
+
+                    $.each(rtn, function (i, v) {
+                        var locationMapping = {
+                            countryid: v.countryid,
+                            locationid: v.locationid,
+                            businessunitid: v.businessunitid,
+                            countryname: v.countryname,
+                            locationname: v.locationname,
+                            businessunitname: v.businessunitname,
+                            genericlocationid: v.genericlocationid
+                        }
+                        locationMap[v.businessunitid] = locationMapping;
+
+                        var html_option = "<option value='" + v.businessunitid + "'>" + v.businessunitname + "</option>";
+                        $("#ddlBusinessUnit").append(html_option)
+                    })
+
+                    $("#ddlBusinessUnit").trigger("change");
+                }
+            });
+        }
+
+        $(function () {
+            var dateNow = new Date();
+            var day = dateNow.getDate();
+            var month = dateNow.getMonth() + 1; //0-based
+            var year = dateNow.getFullYear();
+
+            const result = dateNow.toLocaleDateString("en-SG", {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit"
+            });
+
+            $("#rollcallerdate").val(result)
+
+            LoadRollCallerLocations();
+            LoadStatus();
+            InitializeSummary();
+
+            $("#divManualEntry").hide();
+            $("#divManualEntryForm").hide();
+        })
+
+        /****************** Script for QR Reader *************/
+
+
+        let html5QrCode = null;
+        let config = { fps: 10, qrbox: 250 };
+
+
+        function startScanner() {
+            html5QrCode = new Html5Qrcode("reader");
+            html5QrCode.start({ facingMode: "environment" }, config, handleScanSuccess, handleScanFailure, handleVideoError);
+
+            /* setTimeout(() => {
+                 let html5QrCode = new Html5QrcodeScanner(
+                     "reader", { fps: 10, qrbox: 250 });
+                 html5QrCode.render(handleScanSuccess);
+             }, 1000)*/
+        }
+
+
+        function handleScanSuccess(decodedText, decodedResult) {
+            console.log(`eBizCard detected: ${decodedText}`);
+
+            UpdateResponseStatus(decodedText);
+
+        }
+
+        function handleScanFailure(error) {
+            console.log(`eBizCard detection failed: ${error}`);
+        }
+
+        function handleVideoError(videoError) {
+            console.log(`Video error: ${videoError}`);
+        }
+
+
+        function stopScanner() {
+            if (html5QrCode) {
+                html5QrCode.stop().then(ignore => {
+                    // QR Code scanning is stopped
+                }).catch(err => {
+                    console.log(`Unable to stop scanning: ${err}`);
+                });
+            }
+        }
+
+        // Initialize the QR scanner when the modal is shown
+        $('#cameraModal').on('shown.bs.modal', startScanner);
+
+        // Stop the QR scanner when the modal is hidden
+        $('#cameraModal').on('hidden.bs.modal', stopScanner);
+
+
+        function openScanner() {
+            navigator.mediaDevices.getUserMedia({ video: true, focusMode: "continuous" })
+                .then(function (stream) {
+                    // Camera access was granted, can use camera
+                    $('#cameraModal').modal('show');
+                })
+                .catch(function (err) {
+                    bootbox.alert("Camera access was not granted, please grant the access before proceed.");
+                });
+
+        }
+
+        //**** Update Response fron eBizCard ****/
+        function UpdateResponseStatus(code) {
+            $('#cameraModal').modal('hide');
+            var _email = '';
+            if (code != undefined && code.trim() != '') {
+                var eBizString = code.trim();
+                var eBizValues = eBizString.split('\r\n');
+                if (eBizValues != undefined && eBizValues.length > 0) {
+                    for (var i = 0; i < eBizValues.length; i++) {
+                        if (eBizValues[i].toLowerCase().indexOf('email') >= 0 &&
+                            eBizValues[i].toLowerCase().indexOf('internet') > 0) {
+                            var _pair = eBizValues[i].split(':');
+                            if (_pair != undefined && _pair.length > 0) {
+                                _email = _pair[1];
+                                console.log(`Email: ${_email}`);
+
+                                $.ajax({
+                                    type: "POST",
+                                    async: false,
+                                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                        ajaxerroralert(XMLHttpRequest, textStatus, errorThrown);
+                                    },
+                                    url: url_api,
+                                    data: { req: "SaveResponseStatusByEmail", emailid: _email, triggerid: triggerid },
+                                    dataType: "text json",
+                                    success: function (rtn) {
+                                        if (rtn.result == "false") {
+                                            alert("Error: Error occurred. Please try again.")
+                                            return;
+                                        } else {
+                                            refreshlist();
+                                        }
+                                    }
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+            else {
+                bootbox.alert("Something went wrong");
+
+            }
+        }
+
+        /****************** ************ *************/
+    </script>
+</body>
+</html>
