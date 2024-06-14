@@ -961,11 +961,12 @@
         function openScanner() {
             navigator.mediaDevices.getUserMedia({ video: true, focusMode: "continuous" })
                 .then(function (stream) {
+                    console.log("Duy: ");
                     // Camera access was granted, can use camera
-                    $('#cameraModal').modal('show');
+                    // $('#cameraModal').modal('show');
                 })
                 .catch(function (err) {
-                    console.log("Duy: ",err);
+                    // console.log("Duy: ",err);
                     // bootbox.alert("Camera access was not granted, please grant the access before proceed.");
                 });
 
